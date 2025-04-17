@@ -1,0 +1,105 @@
+/* import other style sheets
+-----------------------------------------------------------------*/	
+
+@import url("layout.css");
+@import url("content.css");
+
+
+
+/* general declarations
+-----------------------------------------------------------------*/	
+
+body { 
+	margin: 0;
+	padding: 0;
+	background: #fff url(../images/layout/bg/bg_body.jpg) top left no-repeat;
+	color: #333;		
+	font-size: 14px; }		
+
+a { 
+	color: #c00;
+	font-weight: bold; }	
+
+a:hover {}
+
+a:active {}	
+	
+a span { display: none; }
+	
+div, p, span { 
+	height: auto;
+	width: auto;
+	margin: 0;
+	padding: 0; }
+		
+h1, h2, h3, h4 { 
+	margin: 0;
+	padding: 0; }
+
+h1 span { display: none; }
+
+h2 span { display: none; }
+
+h3 span { display: none; }
+
+h4 span { display: none; }
+								
+img { 
+	margin: 0; 
+	display: block;
+	border: 0; }
+
+input[type="button"], input[type="submit"] { }
+	
+hr { 
+	height: 0;
+	margin: 0;
+	padding: 0;
+	display: none;
+	clear: both; }
+
+table { border-spacing: 0; }
+table th { text-align: left; }
+	
+ul.menu_h,
+ul.menu_v { 		
+	margin: 0;
+	padding: 0;  
+	list-style: none; }
+
+ul.menu_h li { 
+	margin: 0;
+	padding: 0;
+	float: left; }
+
+ul.menu_h li a { 
+	margin: 0;
+	padding: 0; 
+	float: left; }
+
+/* Commented Backslash Hack
+ hides rule from IE5-Mac \*/
+ul[class="menu_h"] li a { float: none; }
+/* End IE5-Mac hack */
+
+*.float_spacer { display: none; }
+
+/* Commented Backslash Hack
+ hides rule from IE5-Mac \*/
+ 
+html>body *.float_spacer {
+	height: 0;
+	display: block;
+	clear: both;  
+	line-height: 0; }
+
+/* End IE5-Mac hack */
+
+
+*.hide { display: none; }
+		
+.smalltext { font-size: smaller; }	
+.alerttext { color: #900; }
+
+
+

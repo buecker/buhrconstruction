@@ -1,0 +1,74 @@
+div#content { 
+	width: 350px;
+	margin: 50px 0;
+	padding: 0 200px;
+	position: relative; }
+
+#content p { margin: 0 0 10px 0; }
+
+/* home page
+-----------------------------------------------------------------*/	
+div#testimonial_col { 
+	position: absolute;
+	top: 75px;
+	left: 0;
+	width: 150px; }
+
+div.testimonial {}
+.testimonial p { display: none; }
+	
+div#testimonial_00 { 
+	width: 150px;
+	height: 205px; 
+	background: transparent url(../images/layout/testimonials/testimonial_00.gif) top right no-repeat; }
+div#testimonial_01 { 
+	width: 150px;
+	height: 500px; 
+	background: transparent url(../images/layout/testimonials/testimonial_01.gif) top right no-repeat; }
+	
+div#content_col { }
+	
+div#link_col {
+	position: absolute;
+	top: 0;
+	left: 600px;
+	width: 150px; }
+	
+div#shinglemaster_cert {
+	padding: 125px 15px 10px 15px; 
+	background: #ebf3ff url(../images/shinglemaster_logo.gif) 50% 10px no-repeat; 
+	border: 1px solid #a5bbdd;
+	font-family: "trebuchet ms", helvetica, arial, sans-serif;  
+	font-size: 11px; }
+	
+
+/* contact page
+-----------------------------------------------------------------*/	
+h2 {
+	position: absolute;
+	top: 0;
+	right: 10px; }
+
+h2#contact_buhr { 
+	width: 221px;
+	height: 14px; 
+	background: transparent url(../images/headers/header_contact_buhr.gif) top left no-repeat; }
+
+form { padding: 50px 0 0 0; }
+form p { font-weight: bold; }
+form div.form_item {
+	margin: 10px 0 10px 0;  
+	clear: both; }
+form div.h {
+	width: auto;
+	margin: 0 10px 20px 0;
+	float: left; }
+form div.h p { 
+	width: 100px;
+	white-space: nowrap; 
+	clear: none; }
+
+form input#zip { width: 80px; }
+form input#state { width: 30px; }
+
+#content_col h3 { padding: 50px 0 0 0; }

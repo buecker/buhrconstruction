@@ -1,0 +1,5 @@
+name = "buhr-construction"
+pages_build_output_dir = "."
+
+[env.production]
+# No additional config needed for static site

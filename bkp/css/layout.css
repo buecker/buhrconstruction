@@ -1,0 +1,85 @@
+/* header declarations
+-----------------------------------------------------------------*/	
+
+div#header {
+	height: 150px;
+	width: 750px;	
+	position: relative;
+	border-bottom: 1px dotted #333; } 
+
+h1 {
+	position: absolute;
+	top: 60px;
+	right: 10px; }
+	
+h1 a {
+	width: 158px;
+	height: 84px;
+	display: block; 
+	background: transparent url(../images/layout/title_logo.gif) top left no-repeat; }
+
+#header h2 { display: none; }
+
+div#top_links {
+	width: 732px;
+	margin: 0 0 40px 0;
+	padding: 5px 10px 5px 8px;
+	position: relative;
+	background: #036;
+	color: #fff; 
+	font-family: "trebuchet ms", helvetica, arial, sans-serif;  
+	font-weight: bold; }
+
+
+#top_links div#nav { 
+	position: absolute;
+	top: 5px; 
+	left: 410px; }	
+
+
+/* Commented Backslash Hack
+ hides rule from IE5-Mac \*/
+
+#top_links div#nav { 
+	position: static;
+	float: right;  }	
+
+/* End IE5-Mac hack */
+	
+	
+#top_links li {
+	margin: 0 0 0 10px;
+	padding: 0 0 0 10px;
+	border-left: 1px solid #fff; }
+#top_links ul li:first-child { border: none; }
+
+#top_links a { color: #fff;  }
+	
+div#photo_group {
+	height: 149px;
+	width: 223px; 
+	position: absolute;
+	top: 76px;
+	left: 0; 
+	background: transparent url(../images/layout/photo_group.gif) top left no-repeat; }
+	
+	
+	
+/* footer declarations
+-----------------------------------------------------------------*/	
+	
+div#footer { 
+	height: 70px;
+	width: 750px;
+	background: #fff url(../images/layout/bg/bg_footer.jpg) top left no-repeat; 	
+	border-bottom: 1px dotted #333; }
+	
+#footer p#address {
+	padding: 0 0 5px 0;
+	width: 100%;
+	border-bottom: 1px dotted #333; 	
+	font-size: 90%; 
+	text-align: center; }
+	
+#address span { margin: 0 10px 0 0; }
+#address span:first-child { font-weight: bold; }
