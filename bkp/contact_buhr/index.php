@@ -41,21 +41,7 @@
 	<textarea name="here" placeholder="Type Here"></textarea>
 	
 	<label>Comments or Questions</label>
-    <textarea name="message" placeholder="Type here and please include how you would prefer to be contacted"></textarea>
-	<script type="text/javascript"
-     src="http://www.google.com/recaptcha/api/challenge?k=6Ld0nuYSAAAAAGAZy_OwXcSj_BndNioyzAIAaL5g">
-  </script>
-  <noscript>
-    require_once('recaptchalib.php');
-  $publickey = "6Ld0nuYSAAAAAGAZy_OwXcSj_BndNioyzAIAaL5g"; // you got this from the signup page
-  echo recaptcha_get_html($publickey);
-     <iframe src="http://www.google.com/recaptcha/api/noscript?k=6Ld0nuYSAAAAAGAZy_OwXcSj_BndNioyzAIAaL5g"
-         height="300" width="500" frameborder="0"></iframe><br>
-     <textarea name="recaptcha_challenge_field" rows="3" cols="40">
-     </textarea>
-     <input type="hidden" name="recaptcha_response_field"
-         value="manual_challenge">
-  </noscript>
+	<textarea name="message" placeholder="Type here and please include how you would prefer to be contacted"></textarea>
   	
     <input id="submit" name="submit" type="submit" value="Submit">
       

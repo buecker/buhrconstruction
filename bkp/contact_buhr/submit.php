@@ -34,18 +34,7 @@
 
 	 $body = "From: $name\n' Address: $address\n Address Line 2: $address2\n Daytime Phone: $daytimephone\n Cellphone: $cellphone\n Fax: $fax\n Hear about us?: $hear\n Email: $email\n Message: $message\n";
  
-  require_once('recaptchalib.php');
-  $privatekey = "6Ld0nuYSAAAAAIp5WDYtGGsbVQiw8DNeSiG-ZGgY";
-  $resp = recaptcha_check_answer ($privatekey,
-                                $_SERVER["REMOTE_ADDR"],
-                                $_POST["recaptcha_challenge_field"],
-                                $_POST["recaptcha_response_field"]);
-
-  if (!$resp->is_valid) {
-    // What happens when the CAPTCHA was entered incorrectly
-    die ("The reCAPTCHA wasn't entered correctly. Go back and try it again." .
-         "(reCAPTCHA said: " . $resp->error . ")");
-  } else if ($_POST['submit']) {
+  if ($_POST['submit']) {
  			 
             if (mail ($to, $subject, $body, $from)) { 
 	        echo '<p>Your message has been sent!</p>';
