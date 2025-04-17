@@ -12,8 +12,6 @@
     <link rel="stylesheet" href="/css/main.css">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <!-- Custom styles for jumbotron -->
-    <link rel="stylesheet" href="/css/jumbotron.css">
     <!-- Custom CSS styles -->
     <link rel="stylesheet" href="/css/custom.css">
     <!-- Lightbox CSS styles -->
@@ -30,7 +28,8 @@
             #wrap {display:table;height:100%}
         </style>
     <![endif]-->
-
+    <!-- Cloudflare Turnstile Script -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
   <body style="background-color:#e2eef8;">
       <div id="wrap">
@@ -102,10 +101,10 @@
             - No action URL is needed; Cloudflare will intercept POST requests.
             - Add a "form-name" hidden field for identification.
             - View submissions in the Cloudflare dashboard or set up email/webhook notifications.
-            - See: https://developers.cloudflare.com/pages/platform/forms/
+            - Submits to Cloudflare Worker at /api/contact
           -->
-          <form id="contact-form" method="POST">
-            <input type="hidden" name="form-name" value="contact-buhr-construction">
+          <form id="contact-form" method="POST" action="/api/contact">
+            <!-- Removed form-name hidden input -->
             <div class="form-group">
               <label for="name">Name<span style="color:#d32f2f;">*</span></label>
               <input type="text" class="form-control" id="name" name="name" required autocomplete="name">
@@ -125,33 +124,47 @@
             </div>
             <!-- Honeypot for spam prevention -->
             <input type="text" name="honeypot" style="display:none;">
-            <button type="submit" class="btn btn-primary">Send Message</button>
+            <!-- Cloudflare Turnstile Widget -->
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAABNoncKO5xE5ZAIF" data-theme="light"></div>
+            <button type="submit" class="btn btn-primary mt-3">Send Message</button> <!-- Added margin-top -->
             <div class="alert alert-success mt-3" id="success-message" style="display:none;">Thank you! Your message has been sent.</div>
-            <div class="alert alert-danger mt-3" id="error-message" style="display:none;">Oops! Something went wrong. Please try again.</div>
+            <div class="alert alert-danger mt-3" id="error-message" style="display:none;">Oops! Something went wrong. Please try again or contact us directly.</div>
           </form>
           <script>
             // AJAX form submission for better UX with Cloudflare Pages Forms
             document.getElementById('contact-form').addEventListener('submit', async function(e) {
               e.preventDefault();
               const form = e.target;
-              const data = new FormData(form);
+              const formData = new FormData(form);
               const successMsg = document.getElementById('success-message');
               const errorMsg = document.getElementById('error-message');
               successMsg.style.display = 'none';
               errorMsg.style.display = 'none';
+
               try {
-                const response = await fetch(window.location.pathname, {
+                // Submit to the Worker endpoint
+                const response = await fetch('/api/contact', {
                   method: 'POST',
-                  body: data,
-                  headers: { 'Accept': 'application/json' }
+                  body: formData,
+                  // No 'Accept' header needed unless worker specifically requires it
                 });
+
+                // Check if the Worker responded successfully (status 2xx)
                 if (response.ok) {
+                  // Optionally check the JSON response from the worker
+                  // const result = await response.json();
+                  // console.log(result);
                   form.reset();
                   successMsg.style.display = 'block';
                 } else {
+                  // Handle HTTP errors (e.g., 400, 500) from the Worker
+                  // const errorResult = await response.json();
+                  // console.error('Worker error:', errorResult.message);
                   errorMsg.style.display = 'block';
                 }
-              } catch {
+              } catch (error) {
+                // Handle network errors or exceptions during fetch
+                console.error('Network error:', error);
                 errorMsg.style.display = 'block';
               }
             });
